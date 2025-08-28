@@ -427,6 +427,13 @@ export default function VideoMeetComponent() {
         if (socketIdSender !== socketIdRef.current) {
             setNewMessages((prevNewMessages) => prevNewMessages + 1);
         }
+        // Auto-scroll to bottom after new message render
+        setTimeout(() => {
+            const el = document.getElementById('chat-scroll-container');
+            if (el) {
+                el.scrollTop = el.scrollHeight;
+            }
+        }, 0);
     };
 
 
@@ -455,7 +462,21 @@ export default function VideoMeetComponent() {
 
 
                     <h2>Enter into Lobby </h2>
-                    <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
+                    <TextField
+                        id="outlined-basic"
+                        label="Username"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        variant="outlined"
+                        InputLabelProps={{ sx: { color: '#fff' } }}
+                        InputProps={{ sx: { color: '#fff' } }}
+                        sx={{
+                            '& .MuiOutlinedInput-notchedOutline': { borderColor: '#ffffff80' },
+                            '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#fff' },
+                            '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#fff' },
+                            '& .MuiInputLabel-root.Mui-focused': { color: '#fff' }
+                        }}
+                    />
                     <Button variant="contained" onClick={connect}>Connect</Button>
 
 
@@ -473,7 +494,7 @@ export default function VideoMeetComponent() {
                         <div className={styles.chatContainer}>
                             <h1>Chat</h1>
 
-                            <div className={styles.chattingDisplay}>
+                            <div className={styles.chattingDisplay} id="chat-scroll-container">
 
                                 {messages.length !== 0 ? messages.map((item, index) => {
 
