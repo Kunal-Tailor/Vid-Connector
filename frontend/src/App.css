@@ -1,10 +1,11 @@
 .landingPageContainer {
   width: 100vw;
   height: 100vh;
-  background: url("/public/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(108,140,255,0.14), transparent 60%),
+    radial-gradient(900px 700px at -10% 100%, rgba(255,152,57,0.1), transparent 60%),
+    linear-gradient(180deg, var(--color-bg), var(--color-bg-soft));
+  color: var(--color-text);
 }
 
 .landingPageContainer nav {
@@ -18,7 +19,8 @@
 
 .landingPageContainer nav h2 {
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: .3px;
 }
 
 .landingPageContainer nav .navlist {
@@ -41,22 +43,20 @@
 }
 
 .landingMainContainer>div:nth-child(1) div[role='button'] {
-  background: #D97500;
   width: fit-content;
-  padding: 1rem;
-  border-radius: 20px;
   margin-top: 1.9rem;
 }
 
 .landingMainContainer>div:nth-child(1) div[role='button'] a {
   text-decoration: none;
   color: white;
-  font-size: 1.7rem;
+  font-size: 1.1rem;
 }
 
 .landingMainContainer>div:nth-child(2) img {
   height: 70vh;
   width: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.45));
 }
 
 .navBar {
@@ -93,4 +93,30 @@
   width: 30vw;
   height: auto;
   border-radius: 20px;
+  box-shadow: var(--shadow-1);
+}
+
+/* Enhanced elements */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+}
+
+.hero-title {
+  font-size: clamp(28px, 4.6vw, 58px);
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  color: var(--color-text-dim);
+}
+
+.cta {
+  margin-top: 22px;
 }

@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg: #0b1020;
+  --color-bg-soft: #0f1630;
+  --color-surface: #151c39;
+  --color-surface-2: #1c2650;
+  --color-text: #e6e9f2;
+  --color-text-dim: #b7bfd9;
+  --color-primary: #6c8cff;
+  --color-primary-strong: #5477ff;
+  --color-accent: #ff9839;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-1: 0 8px 24px rgba(0,0,0,0.25);
+}
 
 body {
   margin: 0;
@@ -12,9 +26,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text);
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(108,140,255,0.15), transparent 60%),
+              radial-gradient(900px 700px at -10% 100%, rgba(255,152,57,0.12), transparent 60%),
+              linear-gradient(180deg, var(--color-bg), var(--color-bg-soft));
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-strong);
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.elevated-card {
+  background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 200ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-strong));
+  color: white;
+  box-shadow: 0 10px 24px rgba(84,119,255,0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.06);
 }

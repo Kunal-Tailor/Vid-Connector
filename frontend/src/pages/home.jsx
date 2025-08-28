@@ -22,11 +22,14 @@ function HomeComponent() {
     return (
         <>
 
-            <div className="navBar">
+            <div className="navBar container">
 
                 <div style={{ display: "flex", alignItems: "center" }}>
 
-                    <h2>Kunal's Video Call App</h2>
+                    <div className='brand-badge'>
+                        <img src="/logo192.png" alt="logo" style={{ width: 22, height: 22, borderRadius: 6 }} />
+                        <h2>Kunal's Video Call</h2>
+                    </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -51,15 +54,15 @@ function HomeComponent() {
             </div>
 
 
-            <div className="meetContainer">
+            <div className="meetContainer container">
                 <div className="leftPanel">
                     <div>
-                        <h2>Providing Quality Video Call Just Like Quality Education</h2>
+                        <h2 className='hero-title'>Start or join a meeting instantly</h2>
 
                         <div style={{ display: 'flex', gap: "10px" }}>
 
-                            <TextField onChange={e => setMeetingCode(e.target.value)} id="outlined-basic" label="Meeting Code" variant="outlined" />
-                            <Button onClick={handleJoinVideoCall} variant='contained'>Join</Button>
+                            <TextField onChange={e => setMeetingCode(e.target.value)} id="outlined-basic" label="Meeting Code" variant="outlined" color='white'/>
+                            <Button onClick={handleJoinVideoCall} className='btn btn-primary' variant='contained'>Join</Button>
 
                         </div>
                     </div>

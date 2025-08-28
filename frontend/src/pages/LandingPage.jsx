@@ -9,38 +9,41 @@ export default function LandingPage() {
         <div className='landingPageContainer'>
             <nav>
                 <div className='navHeader'>
-                    <h2>Kunal's Video Call App</h2>
+                    <div className='brand-badge'>
+                        <img src="/logo192.png" alt="logo" style={{ width: 24, height: 24, borderRadius: 6 }} />
+                        <h2>Kunal's Video Call</h2>
+                    </div>
                 </div>
                 <div className='navlist'>
                     <p onClick={() => {
                         router("/aljk23")
-                    }}>Join as Guest</p>
+                    }} className='btn btn-primary'>Join as Guest</p>
                     <p onClick={() => {
                         router("/auth")
 
-                    }}>Register</p>
+                    }} className='btn btn-primary'>Register</p>
                     <div onClick={() => {
                         router("/auth")
 
-                    }} role='button'>
+                    }} role='button' className='btn btn-primary'>
                         <p>Login</p>
                     </div>
                 </div>
             </nav>
 
 
-            <div className="landingMainContainer">
+            <div className="landingMainContainer container">
                 <div>
-                    <h1><span style={{ color: "#FF9839" }}>Connect</span> with your loved Ones</h1>
+                    <h1 className='hero-title'><span style={{ color: "var(--color-accent)" }}>Connect</span> with your loved ones</h1>
 
-                    <p>Cover a distance by Apna Video Call</p>
-                    <div role='button'>
-                        <Link to={"/auth"}>Get Started</Link>
+                    <p className='hero-subtitle'>Crystal‑clear calls, instant sharing, secure meetings.</p>
+                    <div role='button' className='cta'>
+                        <Link className='btn btn-primary' to={"/auth"}>Get Started</Link>
                     </div>
                 </div>
                 <div>
 
-                    <img src="/mobile.png" alt="" />
+                    <img src="/mobile.png" alt="Preview" />
 
                 </div>
             </div>
